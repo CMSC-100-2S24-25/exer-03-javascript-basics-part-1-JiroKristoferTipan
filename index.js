@@ -79,17 +79,21 @@ function storePassword(name, pass1, pass2){
         user.name = name;
         user.newpassword = pass1;
     }
-    console.log(user);
+    //console.log(user);
     return user;
 }
 
-validatePassword("helloworld", "hello"); // returns false
-validatePassword("hello", "hello"); // returns false
-validatePassword("hello1234", "hello1234"); // returns false
-validatePassword("Hello1234", "Hello1234"); // returns true
-validatePassword("HELLO1234", "HELLO1234"); // returns false
 
-reversePassword("tacocat1");
+//check input 
+console.log(validatePassword("helloworld", "hello")); // returns false
+console.log(validatePassword("hello", "hello")); // returns false
+console.log(validatePassword("hello1234", "hello1234")); // returns false
+console.log(validatePassword("Hello1234", "Hello1234")); // returns true
+console.log(validatePassword("HELLO1234", "HELLO1234")); // returns false
 
-storePassword("John", "Pass1234", "Pass1234") // returns {name: &quot;John&quot;, newpassword:&quot;4321ssaP&quot;}
-storePassword("John", "Pass123", "Pass12345") // returns {name: &quot;John&quot;, newpassword:&quot;Pass123&quot;}
+console.log(reversePassword("tacocat1"));
+console.log(reversePassword("abcdefg"));
+console.log(reversePassword("racecar"));
+
+console.log(storePassword("John", "Pass1234", "Pass1234")); // returns {name: &quot;John&quot;, newpassword:&quot;4321ssaP&quot;}
+console.log(storePassword("John", "Pass123", "Pass12345")); // returns {name: &quot;John&quot;, newpassword:&quot;Pass123&quot;}
