@@ -7,6 +7,7 @@ function validatePassword(x, y){
         matchBool = false;
         errorType = 1;
     }
+
     //check if characters are same
     //loop thru each char and compare
     //only loop thru 1 string because lentgsh should be the same at this point
@@ -16,14 +17,18 @@ function validatePassword(x, y){
             errorType = 2;
         }
     }
+
     //check if at least 8  characters
     if (i < 7){
         matchBool = false;
         errorType = 3;
     }
+
     //check if has at least 1 upper and lowercase letter
     //dont check for y because x and y should be the same at this point
-    if (x === x.toUpperCase() || x === x.toLowerCase()){
+    if (x == x.toUpperCase() || x == x.toLowerCase()){
+        //console.log(x.toUpperCase());
+        //console.log(x);
         matchBool = false;
         errorType = 4;
     }
@@ -38,8 +43,8 @@ function validatePassword(x, y){
             errorType = 5;
         }
     }
-    console.log(matchBool);
-    console.log(errorType);
+    //console.log(matchBool);
+    //console.log(errorType);
     return matchBool;
 }
 
@@ -52,24 +57,27 @@ function reversePassword(x){
             newPass = newPass + x[i-1];
         }
     }
-    console.log(newPass);
+    //console.log(newPass);
     return newPass;
 }
 
 function storePassword(name, pass1, pass2){
-    var user;
+    const user = {
+        name: "placeholder",
+        newpassword: "placeholder"
+    }
 
     //if same password, reverse then store as object
     if (validatePassword(pass1, pass2)){
         var newPass = reversePassword(pass1);
         user.name = name;
-        user.newPassword = newPass;
+        user.newpassword = newPass;
 
     } 
     //store 1st password then store
     else{
         user.name = name;
-        user.newPassword = pass1;
+        user.newpassword = pass1;
     }
     console.log(user);
     return user;
@@ -82,3 +90,6 @@ validatePassword("Hello1234", "Hello1234"); // returns true
 validatePassword("HELLO1234", "HELLO1234"); // returns false
 
 reversePassword("tacocat1");
+
+storePassword("John", "Pass1234", "Pass1234") // returns {name: &quot;John&quot;, newpassword:&quot;4321ssaP&quot;}
+storePassword("John", "Pass123", "Pass12345") // returns {name: &quot;John&quot;, newpassword:&quot;Pass123&quot;}
