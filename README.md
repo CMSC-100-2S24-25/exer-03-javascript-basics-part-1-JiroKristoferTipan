@@ -1,1 +1,9 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/2EnW9dmo)
+# Information
+Name: Jiro Kristofer Tipan
+Course: BS Computer Science
+Section: C-1L
+Student number: 2023-13538
+https://github.com/CMSC-100-2S24-25/exer-02-html-with-css-JiroKristoferTipan.git
+
+# Key Takeaways:
+JavaScript is a way to be able to add code and functionality to my html and css projects. 

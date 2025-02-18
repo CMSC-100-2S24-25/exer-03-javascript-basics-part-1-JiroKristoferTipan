@@ -1,9 +1,11 @@
 function validatePassword(x, y){
     var matchBool = true;
+    var errorType;
 
     //check if strings are same length
     if (x.length != y.length){
         matchBool = false;
+        errorType = 1;
     }
     //check if characters are same
     //loop thru each char and compare
@@ -11,31 +13,46 @@ function validatePassword(x, y){
     for (var i = 0; i< x.length; i++){
         if (x[i] != y[i]){
             matchBool = false;
+            errorType = 2;
         }
     }
     //check if at least 8  characters
     if (i < 7){
         matchBool = false;
+        errorType = 3;
     }
     //check if has at least 1 upper and lowercase letter
     //dont check for y because x and y should be the same at this point
     if (x === x.toUpperCase() || x === x.toLowerCase()){
         matchBool = false;
+        errorType = 4;
     }
     //check for int in string
     for (var j = 0; j < x.length; j++){
-        if (x[j] != parseInt(x[j])){
+        //console.log(Number.isInteger(parseInt(x[j])));
+        if(Number.isInteger(parseInt(x[j]))){
+            break;
+        }
+        if (j == (x.length) - 1){
             matchBool = false;
+            errorType = 5;
         }
     }
+    console.log(matchBool);
+    console.log(errorType);
     return matchBool;
 }
 
 function reversePassword(x){
     var newPass;
     for (let i = x.length; i > 0; i--){
-        newPass[0] = x[0];
+        if (i == x.length){
+            newPass = x[i-1];
+        } else{
+            newPass = newPass + x[i-1];
+        }
     }
+    console.log(newPass);
     return newPass;
 }
 
@@ -54,5 +71,14 @@ function storePassword(name, pass1, pass2){
         user.name = name;
         user.newPassword = pass1;
     }
+    console.log(user);
     return user;
 }
+
+validatePassword("helloworld", "hello"); // returns false
+validatePassword("hello", "hello"); // returns false
+validatePassword("hello1234", "hello1234"); // returns false
+validatePassword("Hello1234", "Hello1234"); // returns true
+validatePassword("HELLO1234", "HELLO1234"); // returns false
+
+reversePassword("tacocat1");
