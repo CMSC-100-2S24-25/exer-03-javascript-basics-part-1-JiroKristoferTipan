@@ -1,6 +1,6 @@
 function validatePassword(x, y){
-    var matchBool = true;
-    var errorType;
+    let matchBool = true;
+    let errorType;
 
     //check if strings are same length
     if (x.length != y.length){
@@ -15,6 +15,7 @@ function validatePassword(x, y){
         if (x[i] != y[i]){
             matchBool = false;
             errorType = 2;
+            break;
         }
     }
 
@@ -33,7 +34,7 @@ function validatePassword(x, y){
         errorType = 4;
     }
     //check for int in string
-    for (var j = 0; j < x.length; j++){
+    for (let j = 0; j < x.length; j++){
         //console.log(Number.isInteger(parseInt(x[j])));
         if(Number.isInteger(parseInt(x[j]))){
             break;
@@ -48,13 +49,13 @@ function validatePassword(x, y){
     return matchBool;
 }
 
-function reversePassword(x){
+function reversePassword(pass){
     var newPass;
-    for (let i = x.length; i > 0; i--){
-        if (i == x.length){
-            newPass = x[i-1];
+    for (let i = pass.length; i > 0; i--){
+        if (i == pass.length){
+            newPass = pass[i-1];
         } else{
-            newPass = newPass + x[i-1];
+            newPass = newPass + pass[i-1];
         }
     }
     //console.log(newPass);
@@ -69,7 +70,7 @@ function storePassword(name, pass1, pass2){
 
     //if same password, reverse then store as object
     if (validatePassword(pass1, pass2)){
-        var newPass = reversePassword(pass1);
+        let newPass = reversePassword(pass1);
         user.name = name;
         user.newpassword = newPass;
 
