@@ -28,18 +28,31 @@ function validatePassword(x, y){
             matchBool = false;
         }
     }
+    return matchBool;
+}
 
-function reversePassword(x, y){
+function reversePassword(x){
     var newPass;
-    if (validatePassword(x, y)){
-        for (let i = x.length; i > 0; i--){
-            newPass[0] = x[0];
-        }
+    for (let i = x.length; i > 0; i--){
+        newPass[0] = x[0];
     }
     return newPass;
 }
 
+function storePassword(name, pass1, pass2){
+    var user;
 
+    //if same password, reverse then store as object
+    if (validatePassword(pass1, pass2)){
+        var newPass = reversePassword(pass1);
+        user.name = name;
+        user.newPassword = newPass;
 
-    return matchBool;
+    } 
+    //store 1st password then store
+    else{
+        user.name = name;
+        user.newPassword = pass1;
+    }
+    return user;
 }
