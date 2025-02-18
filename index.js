@@ -22,12 +22,23 @@ function validatePassword(x, y){
     if (x === x.toUpperCase() || x === x.toLowerCase()){
         matchBool = false;
     }
-
-
-
+    //check for int in string
     for (var j = 0; j < x.length; j++){
-        if (x[j] != x[j].toUpperCase() && )
+        if (x[j] != parseInt(x[j])){
+            matchBool = false;
+        }
     }
+
+function reversePassword(x, y){
+    var newPass;
+    if (validatePassword(x, y)){
+        for (let i = x.length; i > 0; i--){
+            newPass[0] = x[0];
+        }
+    }
+    return newPass;
+}
+
 
 
     return matchBool;
